@@ -27,8 +27,32 @@ class Matrix {
         this.array = matrixArray;
         return this.array;
     }
-    setArray(){
+    determinant(InputMatrix) {
+        
+        if(InputMatrix.length == 1) {
+            return (ab-cd)
+        }
+        else{
+            for(){
 
+            }
+        }
+    }
+    Cofactor(InputMatrix,rowInput,columnInput){
+        var returnArray;
+        var key1;
+        var key2;
+        for(var i=0;i<(InputMatrix.length - 1);i++){
+            returnArray.append([]);
+        }
+        for(var i=0;i<InputMatrix.length;i++){
+            for(var j=0;j<InputMatrix.length;j++) {
+                if((i != rowInput) && (j != columnInput)){
+                    returnArray[][] =  InputMatrix[i][j];
+                }
+            }
+        }
+        return returnArray * (-1)^(i+j+2);
     }
 
 }
@@ -51,6 +75,6 @@ function deleteMatrix(){
 
 $(document).ready(function() {
     $("#input").click(inputSize);
- //   $("#delete").click(deleteMatrix);
+    $("#delete").click(deleteMatrix);
     // $("#update").click(updateArray);
 });
