@@ -9,12 +9,13 @@ class Matrix {
         let matrix = [];
         for (let i = 0; i <(this.rows); i++) {
             matrix.push([]);
-            $("#output").append("<BR/>")
+            let breakElement = "<BR/>";
+            $(".output").append(breakElement);
             for (let j=0;j<(this.columns);j++) {
                 let matrixElement = "<input/>";
-                matrixElement = $(matrixElement).attr("id", (i+1) + "," + (j+1));
+                matrixElement = $(matrixElement).attr("id", (i+1) + "_" + (j+1));
                 matrixElement.attr("class", 'matrix');
-                $("#output").append(matrixElement);
+                $(".output").append(matrixElement);
                 matrix[i].push("");
             }
         }
@@ -27,32 +28,14 @@ class Matrix {
         this.array = matrixArray;
         return this.array;
     }
-    determinant(InputMatrix) {
-        
-        if(InputMatrix.length == 1) {
-            return (ab-cd)
-        }
-        else{
-            for(){
-
+    setArray(){
+        for(let i = 0;i<(this.rows);i++){
+            for(let j = 0;j<(this.columns);j++){
+                console.log($('#' + (i+1) + "_" + (j+1)).val());
+                this.array[i][j] = $('#' + (i+1) + "_" + (j+1)).val();
             }
         }
-    }
-    Cofactor(InputMatrix,rowInput,columnInput){
-        var returnArray;
-        var key1;
-        var key2;
-        for(var i=0;i<(InputMatrix.length - 1);i++){
-            returnArray.append([]);
-        }
-        for(var i=0;i<InputMatrix.length;i++){
-            for(var j=0;j<InputMatrix.length;j++) {
-                if((i != rowInput) && (j != columnInput)){
-                    returnArray[][] =  InputMatrix[i][j];
-                }
-            }
-        }
-        return returnArray * (-1)^(i+j+2);
+        console.log(this.array);
     }
 
 }
@@ -65,16 +48,13 @@ function inputSize(){
 function deleteMatrix(){
     $(".matrix").remove();
 }
-/*function updateArray(){
-    for(i=0;i<;i++){
-        for(j=0;j<;j++){
-            let testing = $("#matrix");
-
-}*/
+function updateArray(){
+    firstMatrix.setArray();
+}
 
 
 $(document).ready(function() {
     $("#input").click(inputSize);
     $("#delete").click(deleteMatrix);
-    // $("#update").click(updateArray);
+    $("#update").click(updateArray);
 });
